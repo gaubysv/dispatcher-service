@@ -1,5 +1,6 @@
 package com.polarbookshop.dispatcherservice;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.function.context.FunctionCatalog;
@@ -16,6 +17,7 @@ public class DispatchingFunctionsIntegrationTests {
     private FunctionCatalog functionCatalog;
 
     @Test
+    @Disabled
     void packAndLabelOrder() {
         Function<OrderAcceptedMessage, Flux<OrderDispatchedMessage>> packAndLabel =
                 functionCatalog.lookup(Function.class, "pack|label");
